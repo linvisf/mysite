@@ -1,0 +1,13 @@
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_qeustion_list %}
+{#            模板中使用硬编码，耦合性不好 #}
+{#        <li><a href="/polls/{{ question.id }}/">#}
+            <li><a href="{% url 'polls:detail' question_id %}">
+            {{ question.question_text }}
+        </a> </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available</p>
+{% endif %}
